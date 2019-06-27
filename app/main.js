@@ -17,5 +17,4 @@ class App {
 
 window['app'] = new App()
 
-// @ts-ignore
-REVIEW // DONE WITH MAIN.JS
+//REVIEW Code completed for review
