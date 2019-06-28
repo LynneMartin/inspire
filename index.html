@@ -6,27 +6,59 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Inspire</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!--REVIEW Is this cdn syntax correct?-->
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body id="bg-image">
-	<div id="weather">
-		Your Weather Template
-	</div>
+<body id="bg-image" background="URL">
+	<main class="container-fluid">
+		<div class="row">
+			<div class="col-12 col-md-3">
+				<!--SECTION To Do List-->
+				<div>
+					<h4 class="text-center">To-Do List</h4>
+					<div id="todo-error"></div>
+					<form class="d-flex justify-content-center" onsubmit="app.controllers.todoController.addTodo(event)">
+						<input type="text" name="description" placeholder="Add Item">
+						<button class="btn btn-dark btn-sm" type="Submit">Add</button>
+					</form>
+				</div>
+			</div>
+		</div>
 
-	<div id="quote">
-		The Quote
-	</div>
+		<form class="mt-3">
+			<ul id="todos">
+				<!--NOTE list of ToDos in this space-->
+			</ul>
+		</form>
+		</div>
 
-	<div>
-		A Todo List
-		<div id="todo-error"></div>
-		<form onsubmit=""></form>
-		<div id="todos"></div>
-	</div>
+		<!--NOTE count-->
+		<div id="count" class="text-center">
+
+			<!--SECTION Weather-->
+			<div id="weather" class="mt-3">
+			</div>
+
+			<div class="img-info align mr-3">
+			</div>
+			<p onclick="app.controllers.imageController.getImage()"><i class="fas fa-sync-alt></i>
+		View New Photo</p>
+
+	<div id=" quote">
+					The Quote
+					<!--TODO WHY WILL A CLOSING DIV NOT WORK?-->
+
+
+
+	</main>
+
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
 	<script type="module" src="app/main.js"></script>
+
+
 </body>
 
 </html>
