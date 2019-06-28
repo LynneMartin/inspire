@@ -4,7 +4,19 @@ const _todoService = new TodoService()
 
 function _drawTodos() {
 	//WHAT IS MY PURPOSE?
-}
+	let template = ''
+	let todos = _todoService.TodoList
+	todos.forEach(t => {
+		if (t.completed == true) {
+			template + - `<s>${t.getTemplate()}</s>`
+		} else {
+			template + - t.getTemplate()
+		}
+	})
+};
+
+document.querySelector('todos').innerHTML = template
+document.querySelector('count').innerHTML = `<p>Number of tasks: ${todos.length}</p>` //REVIEW Check syntax
 
 function _drawError() {
 	console.error('[TODO ERROR]', _todoService.TodoError)
@@ -17,6 +29,7 @@ export default class TodoController {
 		_todoService.addSubscriber('error', _drawError)
 		_todoService.getTodos()
 		// Don't forget to add your subscriber
+		_todoService.addSubscriber('todos', _drawTodos)
 	}
 
 	addTodo(e) {
@@ -24,9 +37,11 @@ export default class TodoController {
 		var form = e.target
 		var todo = {
 			// DONT FORGET TO BUILD YOUR TODO OBJECT
+			description: form.description.value
 		}
 
 		_todoService.addTodo(todo)
+		form.reset()
 	}
 
 	toggleTodoStatus(todoId) {
@@ -42,3 +57,6 @@ export default class TodoController {
 
 
 }
+
+//REVIEW Review code to check for completion
+

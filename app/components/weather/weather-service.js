@@ -30,7 +30,7 @@ export default class WeatherService {
 	}
 
 	getWeather() {
-		console.log('Calling the Weatherman') //Can this be removed?
+		console.log('Calling the Weatherman') //REVIEW Can this be removed?
 		weatherApi.get().then(res => {
 			_setState('weather', new Weather(res.data))
 		})

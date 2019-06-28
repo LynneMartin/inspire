@@ -21,12 +21,24 @@ function _setState(prop, data) {
 
 export default class QuoteService {
 	get Quote() {
-		return //TODO state.quote?
+		return //TODO _state.quote?
 	}
 
 	//TODO add subscribers and quote api
+
+	addSubscriber(prop, fn) {
+		_subscribers[prop].push(fn) //REVIEW Check syntax
+	}
+
+	getQuote() {
+		_quoteApi.get()
+			.then(res => {
+			_setState('quote', new Quote(res.data))
+		})
+	}
 }
 
+//REVIEW Is code within the correct curlies?
 export default class QuoteService {
 
 }

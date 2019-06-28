@@ -1,6 +1,6 @@
 // @ts-ignore
 const todoApi = axios.create({
-	baseURL: 'https://bcw-sandbox.herokuapp.com/api/jake/todos/',
+	baseURL: 'https://bcw-sandbox.herokuapp.com/api/Lynne/todos/',
 	timeout: 3000
 });
 
@@ -32,6 +32,8 @@ export default class TodoService {
 		todoApi.get()
 			.then(res => {
 				// WHAT DO YOU DO WITH THE RESPONSE?
+				let data = res.data.data.map(d => new Todo(d))
+				_setState('todos', data)
 			})
 			.catch(err => _setState('error', err.response.data))
 	}
@@ -40,6 +42,7 @@ export default class TodoService {
 		todoApi.post('', todo)
 			.then(res => {
 				// WHAT DO YOU DO AFTER CREATING A NEW TODO?
+				this.getTodos()
 			})
 			.catch(err => _setState('error', err.response.data))
 	}
@@ -47,11 +50,12 @@ export default class TodoService {
 	toggleTodoStatus(todoId) {
 		let todo = _state.todos.find(todo => todo._id == todoId)
 		// Be sure to change the completed property to its opposite
-		// todo.completed = !todo.completed <-- THIS FLIPS A BOOL
+		todo.completed = !todo.completed //<-- THIS FLIPS A BOOL
 
 		todoApi.put(todoId, todo)
 			.then(res => {
 				//DO YOU WANT TO DO ANYTHING WITH THIS?
+				this.getTodos()
 			})
 			.catch(err => _setState('error', err.response.data))
 	}
@@ -59,6 +63,12 @@ export default class TodoService {
 	removeTodo(todoId) {
 		// This one is on you to write.... 
 		// The http method is delete at the todoId
+		todoApi.delete(todoId)
+			.then(res => {
+				this.getTodos()
+			})
+
+		//REVIEW I feel like there's something I'm missing after this?
 	}
 
 }
