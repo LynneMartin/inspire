@@ -9,9 +9,10 @@ function _drawTodos() {
 	let todos = _todoService.Todos
 	let incomplete = 0
 
+//NOTE I need a function that will create a running list of todo items
+	function
 
 
-	
 	template += `<h3>${incomplete} Tasks left</h4>`
 	document.querySelector('#todos').innerHTML = template
 
@@ -19,7 +20,7 @@ function _drawTodos() {
 	// document.querySelector('count').innerHTML = `<p>Number of tasks: ${todos.length}</p>` //REVIEW Check syntax
 }
 
-function _drawError() { //REVIEW drawError not lighting up?
+function _drawError() { 
 	// console.error('[TODO ERROR]', _todoService.TodoError)
 	document.querySelector('#todo-error').textContent = `${_todoService.TodoError.message}`
 }
