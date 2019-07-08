@@ -13,14 +13,15 @@ function _drawTodos() {
 	function
 
 
-		template() `<h3>${incomplete} Tasks left</h4>
-	document.querySelector('#todos').innerHTML = template
+	//TODO add a function () {
+		<h3>${ incomplete } "Tasks left:"</h3 >
+		document.querySelector('#todos').innerHTML = template
 	document.querySelector('#count').innerHTML = <p>Number of tasks: ${todos.length}</p>
 }
 
 function _drawError() {
 	// console.error('[TODO ERROR]', _todoService.TodoError)
-	document.querySelector('#todo-error').textContent = `${_todoService.TodoError.message } `
+	document.querySelector('#todo-error').textContent = `${_todoService.TodoError.message} `
 }
 
 
@@ -52,5 +53,5 @@ export default class TodoController {
 		// ask the service to run the remove todo with this id
 		_todoService.removeTodo(todoId)
 	}
-
 }
+
