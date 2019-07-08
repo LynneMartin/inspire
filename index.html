@@ -11,55 +11,50 @@
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body id="bg-image" background="URL">
-	<main class="container-fluid">
-		<div class="row">
-			<div class="col-12 col-md-3">
-				<!--SECTION To Do List-->
-				<div>
-					<h4 class="text-center">To-Do List</h4>
-					<div id="todo-error"></div>
-					<form class="d-flex justify-content-center" onsubmit="app.controllers.todoController.addTodo(event)">
-						<input type="text" name="description" placeholder="Add Item">
-						<button class="btn btn-dark btn-sm" type="Submit">Add</button>
-					</form>
+<!--SECTION WEATHER-->
+
+<body class="container-fluid" id="bg-image"
+	background="https://img.wallpapersafari.com/desktop/1920/1080/81/16/UGwnNM.jpg">
+	<div class="row">
+		<div class="col-2 offset-10" id="weather">
+			<!--NOTE weather details shown here -->
+		</div>
+	</div>
+
+	<!--TODO CLOCK (Not yet completed)-->
+	<div class="row">
+		<div class="col" id="clock">
+			<p>CLOCK PLACEHOLDER</p>
+		</div>
+	</div>
+
+
+	<!--SECTION TODO/TASK LIST-->
+	<div class="row mt-5">
+		<div class="col-6" id="form">
+			<form onsubmit="app.controllers.todoController.addTodo(event)">
+				<h3><label for="todo-List">What would you like to accomplish sometime this decade?</label></h3><br>
+				<input type="text" class="form-control" id="description" placeholder="Type new task here">
+				<button class="btn btn-secondary" type="submit">Add</button>
+			</form>
+		</div>
+
+		<div class="col-6 mt-5" id="todos">
+
+			<!--SECTION QUOTE-->
+			<footer>
+				<div class="row">
+					<div class="col" id="quote">
+					</div>
 				</div>
-			</div>
+			</footer>
 		</div>
-
-		<form class="mt-3">
-			<ul id="todos">
-				<!--NOTE list of ToDos in this space-->
-			</ul>
-		</form>
-		</div>
-
-		<!--NOTE count-->
-		<div id="count" class="text-center">
-
-			<!--SECTION Weather-->
-			<div id="weather" class="mt-3">
-			</div>
-
-			<div class="img-info align mr-3">
-			</div>
-			<p onclick="app.controllers.imageController.getImage()"><i class="fas fa-sync-alt></i>
-		View New Photo</p>
-
-	<div id=" quote">
-					The Quote
-					<!--TODO WHY WILL A CLOSING DIV NOT WORK?-->
-
-
-
-	</main>
+	</div>
 
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
 	<script type="module" src="app/main.js"></script>
-
-
 </body>
 
+
 </html>
-<html>

@@ -3,12 +3,11 @@ import WeatherService from "./weather-service.js";
 var _weatherService = new WeatherService()
 
 function drawWeather() {
-	//remember to remove the console log line below.
-	console.log("THE WEATHER MAN SAYS:", _weatherService.Weather)
-	let template = ''
+	// console.log("THE WEATHER MAN SAYS:", _weatherService.Weather)
+	// let template = ''
 	let weather = _weatherService.Weather
-	template = weather.getTemplate()
-	document.querySelector('weather').innerHTML = template
+	document.querySelector('#weather').innerHTML = weather.getTemplate()
+	// template = weather.getTemplate()
 }
 
 export default class WeatherController {

@@ -1,3 +1,5 @@
+import Todo from "../../models/todo.js";
+
 // @ts-ignore
 const todoApi = axios.create({
 	baseURL: 'https://bcw-sandbox.herokuapp.com/api/Lynne/todos/',
@@ -23,28 +25,33 @@ export default class TodoService {
 		return _state.error
 	}
 
+	get Todo() {
+		return _state.todo
+	}
+
 	addSubscriber(prop, fn) {
 		_subscribers[prop].push(fn)
 	}
 
 	getTodos() {
-		console.log("Getting the Todo List")
+		// console.log("Getting the Todo List")
 		todoApi.get()
 			.then(res => {
 				// WHAT DO YOU DO WITH THE RESPONSE?
-				let data = res.data.data.map(d => new Todo(d))
+				let data = res.data.data.map(t => new Todo(t))
 				_setState('todos', data)
 			})
-			.catch(err => _setState('error', err.response.data))
+			.catch(err => _setState('error', err))
 	}
 
 	addTodo(todo) {
 		todoApi.post('', todo)
 			.then(res => {
 				// WHAT DO YOU DO AFTER CREATING A NEW TODO?
+
 				this.getTodos()
 			})
-			.catch(err => _setState('error', err.response.data))
+			.catch(err => _setState('error', err))
 	}
 
 	toggleTodoStatus(todoId) {
@@ -68,7 +75,10 @@ export default class TodoService {
 				this.getTodos()
 			})
 
-		//REVIEW I feel like there's something I'm missing after this?
+		// strikethrough(id) {
+		// 	todoApi.put(id)
 	}
-
+	//REVIEW I feel like there's something I'm missing after this?
 }
+
+

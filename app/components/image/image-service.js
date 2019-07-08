@@ -1,3 +1,5 @@
+import BackgroundImage from "../../models/image.js";
+
 // @ts-ignore
 const imgApi = axios.create({
 	baseURL: '//bcw-sandbox.herokuapp.com/api/images',
@@ -17,9 +19,12 @@ function _setState(prop, data) {
 	_subscribers[prop].forEach(fn => fn());
 }
 
+
+//SECTION PUBLIC
 export default class ImageService {
+
 	get Image() {
-		return _state.image
+		return new BackgroundImage(_state.image)
 	}
 
 	addSubscriber(prop, fn) {
@@ -29,9 +34,8 @@ export default class ImageService {
 	getImage() {
 		imgApi.get()
 			.then(res => {
-				_setState('image', new Image(res.data))
+				_setState('image', new BackgroundImage(res.data))
 			})
 	}
-
 }
 //REVIEW Code ready for review

@@ -6,8 +6,13 @@ function drawQuote() {
   let template = ''
   let quote = _qs.Quote
   template = quote.getTemplate()
-  document.querySelector('quote').innerHTML = template
+  document.querySelector('#quote').innerHTML = template
 }
+
+//REVIEW  Is ^^^ correct, or do I need to write out as...
+// function drawQuote() {
+// let quote = _qs.Quote
+// document.getElementById('quote').innerHTML = quote.getTemplate()
 
 export default class QuoteController {
 
