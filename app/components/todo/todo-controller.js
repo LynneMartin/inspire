@@ -10,13 +10,8 @@ function _drawTodos() {
 	let incomplete = 0
 
 
-	todos.forEach(t => {
-		if (!t.completed) {
-			incomplete++
-		}
-		template += t.getTemplate()
-	})
 
+	
 	template += `<h3>${incomplete} Tasks left</h4>`
 	document.querySelector('#todos').innerHTML = template
 

@@ -11,7 +11,7 @@ export default class Weather {
     //NOTE Kelvin to F conversion ℉=((K-273.15)*1.8)+32, found on w3 schools.
 
     this.city = data.name
-    this.temp = data.temp || ((data.main.temp - 273.15) * (9 / 5) + 32).toFixed(2)
+    this.temp = data.temp || ((data.main.temp - 273.15) * (9 / 5) + 32).toFixed(0)
     this.humidity = data.humidity || data.main.humidity
     this.description = data.description || data.weather[0].description
   }

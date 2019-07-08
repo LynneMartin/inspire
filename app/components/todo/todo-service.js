@@ -77,8 +77,7 @@ export default class TodoService {
 
 		// strikethrough(id) {
 		// 	todoApi.put(id)
+		// }
+		//REVIEW I feel like there's something I'm missing after this?
 	}
-	//REVIEW I feel like there's something I'm missing after this?
 }
-
-
