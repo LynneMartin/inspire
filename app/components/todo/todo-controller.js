@@ -12,9 +12,8 @@ function _drawTodos() {
 	//NOTE I need a function that will create a running list of todo items
 	function
 
-
-	//TODO finish this 
-	() {
+		//TODO finish this 
+		Template() {
 		${ incomplete } <h3>"Tasks left:"</h3 >
 		document.querySelector('#todos').innerHTML = template
 		document.querySelector('#count').innerHTML = <p>Number of tasks: ${todos.length}</p>
