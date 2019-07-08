@@ -13,45 +13,47 @@ function _drawTodos() {
 	function
 
 
-	//TODO add a function () {
-		<h3>${ incomplete } "Tasks left:"</h3 >
+	//TODO finish this 
+	() {
+		${ incomplete } <h3>"Tasks left:"</h3 >
 		document.querySelector('#todos').innerHTML = template
-	document.querySelector('#count').innerHTML = <p>Number of tasks: ${todos.length}</p>
-}
-
-function _drawError() {
-	// console.error('[TODO ERROR]', _todoService.TodoError)
-	document.querySelector('#todo-error').textContent = `${_todoService.TodoError.message} `
-}
-
-
-export default class TodoController {
-	constructor() {
-		_todoService.addSubscriber('error', _drawError)
-		_todoService.addSubscriber('todos', _drawTodos)
-		_todoService.getTodos()
-
+		document.querySelector('#count').innerHTML = <p>Number of tasks: ${todos.length}</p>
 	}
 
-	addTodo(e) {
-		e.preventDefault()
-		var form = e.target
-		var todo = {
-			// DONT FORGET TO BUILD YOUR to do OBJECT
-			description: form.description.value
+	function _drawError() {
+		// console.error('[TODO ERROR]', _todoService.TodoError)
+		document.querySelector('#todo-error').textContent = `${_todoService.TodoError.message} `
+	}
+
+
+	export default class TodoController {
+		constructor() {
+			_todoService.addSubscriber('error', _drawError)
+			_todoService.addSubscriber('todos', _drawTodos)
+			_todoService.getTodos()
+
 		}
-		_todoService.addTodo(todo)
-		form.reset()
-	}
 
-	toggleTodoStatus(todoId) {
-		// asks the service to edit the todo status
-		_todoService.toggleTodoStatus(todoId)
-	}
+		//corresponds to index.html todo section (event)
+		addTodo(e) {
+			e.preventDefault()
+			var form = e.target
+			var todo = {
+				// DONT FORGET TO BUILD YOUR to do OBJECT
+				description: form.description.value
+			}
+			_todoService.addTodo(todo)
+			form.reset()
+		}
 
-	removeTodo(todoId) {
-		// ask the service to run the remove todo with this id
-		_todoService.removeTodo(todoId)
+		toggleTodoStatus(todoId) {
+			// asks the service to edit the todo status
+			_todoService.toggleTodoStatus(todoId)
+		}
+
+		removeTodo(todoId) {
+			// ask the service to run the remove todo with this id
+			_todoService.removeTodo(todoId)
+		}
 	}
-}
 
