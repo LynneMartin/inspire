@@ -4,9 +4,9 @@ export default class Quote {
     this.body = data.body || data.quote.body
     this.author = data.author || data.quote.author
   }
-  
+
   get Template() {
-    return `<p class="quote-items">\"${this.body}\" -  ${this.author}</p>
+    return `<p class="quote">\"${this.body}\" -  ${this.author}</p>
     `
   }
 }
