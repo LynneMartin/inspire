@@ -5,10 +5,12 @@ const _todoService = new TodoService()
 
 function _drawTodos() {
 	let todos = _todoService.Todos
-	document.querySelector('#todos').innerHTML = todos.getTemplate()
-}
-//REVIEW ^^ I tried to basically copy the draw function from the weather controller but this isn't working either. New tasks are adding in the back end but not drawing to the website.
+	let template = ''
 
+	todos.forEach(t => template += t.getTemplate())
+
+	document.querySelector('#todos').innerHTML = template
+}
 
 // function _drawError() {
 // 	// console.error('[TODO ERROR]', _todoService.TodoError)

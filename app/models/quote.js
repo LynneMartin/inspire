@@ -6,9 +6,7 @@ export default class Quote {
   }
 
   get Template() {
-    return `<p class="quote">\"${this.body}\" -  ${this.author}</p>
-    `
+    return `<p class="quote">"${this.body}" -  ${this.author}</p>`
   }
 }
 
-//STUB  Quote working along with author shown!

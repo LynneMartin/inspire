@@ -6,13 +6,11 @@ export default class Todo {
 
   }
 
-
-  //NOTE No errors thrown
   getTemplate() {
     return `
     <h3>${this.description}</h3>
 
-    <button onclick="app.controller.removeTodo('${this._id}')"> Delete </button> `
+    <button onclick="app.controllers.todoController.removeTodo('${this._id}')"> Delete </button> `
   }
 }
 
