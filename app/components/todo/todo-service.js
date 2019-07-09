@@ -3,7 +3,7 @@ import Todo from "../../models/todo.js";
 // @ts-ignore
 const todoApi = axios.create({
 	baseURL: 'https://bcw-sandbox.herokuapp.com/api/Lynne/todos/',
-	timeout: 3000
+	timeout: 5000
 });
 
 let _state = {
@@ -64,7 +64,7 @@ export default class TodoService {
 	toggleTodoStatus(todoId) {
 		let todo = _state.todos.find(todo => todo._id == todoId)
 		// Be sure to change the completed property to its opposite
-		todo.completed = !todo.completed //<-- THIS FLIPS A BOOL
+		//todo.completed = !todo.completed //<-- THIS FLIPS A BOOL
 
 		// this.getTodos('#todos')
 		// 	.catch(err => _setState('error', err.response.data))
