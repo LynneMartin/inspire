@@ -22,7 +22,7 @@ export default class TodoController {
 		// _todoService.addSubscriber('error', _drawError)
 		_todoService.addSubscriber('todos', _drawTodos)
 		_todoService.getTodos()
-		// this.todoService = new TodoService()
+
 	}
 
 	//passes an event
@@ -47,3 +47,5 @@ export default class TodoController {
 		_todoService.removeTodo(todoId)
 	}
 }
+
+//REVIEW Code completed for review

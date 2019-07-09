@@ -17,3 +17,5 @@ export default class QuoteController {
     _qs.getQuote()
   }
 }
+
+//REVIEW Code completed for review

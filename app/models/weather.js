@@ -25,3 +25,5 @@ export default class Weather {
     `
   }
 }
+
+//REVIEW Code working and drawing to website properly

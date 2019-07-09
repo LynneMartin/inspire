@@ -10,3 +10,4 @@ export default class Quote {
   }
 }
 
+//REVIEW Code working and drawing to website properly

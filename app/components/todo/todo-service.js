@@ -89,6 +89,4 @@ export default class TodoService {
 	}
 }
 
-
-		// strikethrough(id) {
-	
+//REVIEW Code completed for review, but no todo list counter has been added.

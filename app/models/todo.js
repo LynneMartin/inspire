@@ -6,7 +6,7 @@ export default class Todo {
 
   }
 
-  //NOTE todo list button and toggle functionality
+  //NOTE todo list button and toggle functionality with if/else statements
 
   getTemplate() {
     if (this.completed) {
@@ -22,6 +22,7 @@ export default class Todo {
     }
   }
 }
+//TODO Todo task counter
 
                           // getTemplate() {
                           //   return `

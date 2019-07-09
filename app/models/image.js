@@ -8,4 +8,4 @@ export default class BackgroundImage {
   }
 }
 
-//REVIEW Code completed for review
+//REVIEW Code working and drawing to website properly. Picture changes with each page refresh, but no bonus picture refresh button added.
