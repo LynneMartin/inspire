@@ -64,7 +64,7 @@ export default class TodoService {
 	toggleTodoStatus(todoId) {
 		let todo = _state.todos.find(todo => todo._id == todoId)
 		// Be sure to change the completed property to its opposite
-		//todo.completed = !todo.completed //<-- THIS FLIPS A BOOL
+		todo.completed = !todo.completed //<-- THIS FLIPS A BOOL
 
 		// this.getTodos('#todos')
 		// 	.catch(err => _setState('error', err.response.data))
@@ -91,5 +91,4 @@ export default class TodoService {
 
 
 		// strikethrough(id) {
-		// 	todoApi.put(id)
-		// }
+	
