@@ -20,7 +20,12 @@ function _setState(prop, data) {
 }
 
 export default class QuoteService {
+	constructor() {
+		//console.log("Quote Service Constructor")
+	}
+
 	get Quote() {
+		//return new Quote(_setState.quote)
 		return _state.quote
 	}
 
@@ -32,8 +37,8 @@ export default class QuoteService {
 	getQuote() {
 		_quoteApi.get()
 			.then(res => {
-				let data = new Quote(res.data)
-				_setState('quote', data)
+				_setState('quote', new Quote(res.data))
+
 			})
 	}
 }

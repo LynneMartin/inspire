@@ -3,10 +3,12 @@ import QuoteService from "./quote-service.js";
 let _qs = new QuoteService()
 
 function drawQuote() {
-  let template = ''
+  //let template = ''
+  let quoteElem = document.querySelector("#quote")
   let quote = _qs.Quote
-  template = quote.getTemplate()
-  document.querySelector('#quote').innerHTML = template
+  quoteElem.innerHTML = quote.Template 
+  //template = quote.getTemplate()
+  //document.querySelector('#quote').innerHTML = template
 }
 
 //REVIEW  Is ^^^ correct, or do I need to write out as...

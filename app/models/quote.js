@@ -4,11 +4,11 @@ export default class Quote {
     this.body = data.body || data.quote.body
     this.author = data.author || data.quote.author
   }
-  getTemplate() {
-    return `<p data-toggle="tooltip" data-placement="bottom" title="${this.author}">"${this.body}"</p>`
+  
+  get Template() {
+    return `<p class="quote-items">\"${this.body}\" -  ${this.author}</p>
+    `
   }
 }
 
-//REVIEW Code completed for review
-
-// { <span class="thequote"><i>"${this.body}"</i></span><span class="author">${this.author}</span> }
+//STUB  Quote working along with author shown!

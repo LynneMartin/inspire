@@ -8,7 +8,7 @@ const todoApi = axios.create({
 
 let _state = {
 	todos: [],
-	error: {},
+	error: {}
 }
 let _subscribers = {
 	todos: [],
@@ -24,32 +24,39 @@ export default class TodoService {
 	get TodoError() {
 		return _state.error
 	}
-
-	get Todo() {
-		return _state.todo
+	//NOTE Todo getter
+	get Todos() {
+		return _state.todos
 	}
 
 	addSubscriber(prop, fn) {
 		_subscribers[prop].push(fn)
 	}
 
+
 	getTodos() {
-		// console.log("Getting the Todo List")
+		//console.log("Getting the Todo List")
 		todoApi.get()
 			.then(res => {
+				console.log("Got the Todo List", res)
+				let serverTodos = res.data.data
+				let todos = serverTodos.map(t => new Todo(t))
+				_setState("todos", todos)
 				// WHAT DO YOU DO WITH THE RESPONSE?
-				let data = res.data.data.map(t => new Todo(t))
-				_setState('todos', data)
 			})
 			.catch(err => _setState('error', err))
 	}
 
-	addTodo(todo) {
-		todoApi.post('', todo)
+	addTodo(newTodo) {
+		todoApi.post('', newTodo)
 			.then(res => {
-				// WHAT DO YOU DO AFTER CREATING A NEW TODO?
+				let serverTodos = res.data.data
+				let todo = new Todo(serverTodos)
+				let todos = this.Todos
+				todos.unshift(todo)
+				_setState('todos', todos)
 
-				this.getTodos()
+				// WHAT DO YOU DO AFTER CREATING A NEW TODO?
 			})
 			.catch(err => _setState('error', err))
 	}
@@ -59,21 +66,26 @@ export default class TodoService {
 		// Be sure to change the completed property to its opposite
 		todo.completed = !todo.completed //<-- THIS FLIPS A BOOL
 
+		// this.getTodos('#todos')
+		// 	.catch(err => _setState('error', err.response.data))
+
+
 		todoApi.put(todoId, todo)
 			.then(res => {
 				//DO YOU WANT TO DO ANYTHING WITH THIS?
 				this.getTodos()
 			})
-			.catch(err => _setState('error', err.response.data))
+			.catch(err => _setState('error', err))
 	}
 
 	removeTodo(todoId) {
 		// This one is on you to write.... 
 		// The http method is delete at the todoId
 		todoApi.delete(todoId)
-			.then(res => {
+			.then(() => {
 				this.getTodos()
 			})
+			.catch(err => _setState('error', err))
 
 		// strikethrough(id) {
 		// 	todoApi.put(id)
