@@ -21,27 +21,27 @@ function _setState(prop, data) {
 }
 
 export default class TodoService {
+
 	get TodoError() {
 		return _state.error
+	}
+
+	addSubscriber(prop, fn) {
+		_subscribers[prop].push(fn)
 	}
 	//NOTE Todo getter
 	get Todos() {
 		return _state.todos
 	}
 
-	addSubscriber(prop, fn) {
-		_subscribers[prop].push(fn)
-	}
-
-
 	getTodos() {
 		//console.log("Getting the Todo List")
 		todoApi.get()
 			.then(res => {
-				console.log("Got the Todo List", res)
+				//console.log("Got the Todo List", res)
 				let serverTodos = res.data.data
 				let todos = serverTodos.map(t => new Todo(t))
-				_setState("todos", todos)
+				_setState('todos', todos)
 				// WHAT DO YOU DO WITH THE RESPONSE?
 			})
 			.catch(err => _setState('error', err))
@@ -69,7 +69,6 @@ export default class TodoService {
 		// this.getTodos('#todos')
 		// 	.catch(err => _setState('error', err.response.data))
 
-
 		todoApi.put(todoId, todo)
 			.then(res => {
 				//DO YOU WANT TO DO ANYTHING WITH THIS?
@@ -87,8 +86,10 @@ export default class TodoService {
 			})
 			.catch(err => _setState('error', err))
 
+	}
+}
+
+
 		// strikethrough(id) {
 		// 	todoApi.put(id)
 		// }
-	}
-}
