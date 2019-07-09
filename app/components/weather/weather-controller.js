@@ -19,5 +19,4 @@ export default class WeatherController {
 
 }
 
-//REVIEW Code completed for review
 
