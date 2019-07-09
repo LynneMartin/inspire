@@ -7,6 +7,8 @@ function _drawTodos() {
 	let todos = _todoService.Todos
 	document.querySelector('#todos').innerHTML = todos.getTemplate()
 }
+//REVIEW ^^ I tried to basically copy the draw function from the weather controller but this isn't working either.
+
 // let template = ''
 // let todosElem = document.querySelector('#todo')
 // let todos = _todoService.Todos
